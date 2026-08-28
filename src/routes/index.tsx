@@ -14,6 +14,8 @@ function HomePage() {
 
   const handleAdd = () => {
     if (!draft.trim()) return;
+    // TEMPORARY: intentional runtime error for testing — remove this block to restore normal behavior
+    throw new Error('Test runtime error: failed to add todo');
     addTodo(draft);
     setDraft('');
   };
