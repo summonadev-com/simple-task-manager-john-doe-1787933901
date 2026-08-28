@@ -7,15 +7,22 @@ export const Route = createFileRoute('/')({
   component: HomePage,
 });
 
+// ─── TEMPORARY: intentional crash-on-load error for testing ───────────────────
+// Delete this block (and the broken.crash() call at the top of HomePage below)
+// to restore the app.
+const broken = undefined as unknown as { crash: () => string };
+// ─────────────────────────────────────────────────────────────────────────────
+
 function HomePage() {
+  // TEMPORARY: intentional crash-on-load error for testing — delete this line to restore the app
+  broken.crash();
+
   const { todos, addTodo, toggleTodo, deleteTodo, clearCompleted, remainingCount, completedCount } =
     useTodos();
   const [draft, setDraft] = useState('');
 
   const handleAdd = () => {
     if (!draft.trim()) return;
-    // TEMPORARY: intentional runtime error for testing — remove this block to restore normal behavior
-    throw new Error('Test runtime error: failed to add todo');
     addTodo(draft);
     setDraft('');
   };
