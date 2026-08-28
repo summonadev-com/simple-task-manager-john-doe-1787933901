@@ -1,8 +1,6 @@
 import { useState } from 'react';
 import { createFileRoute } from '@tanstack/react-router';
 import { TodoList } from '@/components/TodoList';
-// Deliberate test-only control — safe to remove.
-import { CrashButton } from '@/components/CrashButton';
 import { useTodos } from '@/hooks/useTodos';
 
 export const Route = createFileRoute('/')({
@@ -72,8 +70,6 @@ function HomePage() {
             </button>
           </div>
         </div>
-
-        <CrashButton />
       </main>
     </div>
   );
